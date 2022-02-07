@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net35</TargetFrameworks>
+    <RootNamespace>Photon.Realtime</RootNamespace>
+
+    <AssemblyName>PhotonRealtime-DotNet</AssemblyName>
+    <PackageId>PhotonRealtime.Net</PackageId>
+    <OutputPath>..\libs\Release\</OutputPath>
+
+    <Version>4.1.6.12</Version>
+    <Description>Photon Realtime Api.</Description>
+    <Product>Photon Realtime Api.</Product>
+    <Company>Exit Games GmbH</Company>
+    <Authors>Exit Games Developers</Authors>
+    <Copyright>(c) Exit Games GmbH, http://www.exitgames.com</Copyright>
+    <Configurations>Debug;Release;ServerSdk-Release;ServerSdk-Debug;Unity-Debug;Unity-Release</Configurations>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <AssemblyName>PhotonRealtime-NetStandard</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Unity'))">
+    <DefineConstants>$(DefineConstants);SUPPORTED_UNITY</DefineConstants>
+    <PackageId>PhotonRealtime.Unity</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('ServerSdk'))">
+    <DefineConstants>$(DefineConstants);SDK_V4;SERVERSDK</DefineConstants>
+    <AssemblyName>$(AssemblyName)-ServerSdk</AssemblyName>
+    <PackageId>PhotonRealtime.Net.ServerSdk</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.EndsWith('Debug'))">
+    <DefineConstants>DEBUG;$(DefineConstants)</DefineConstants>
+    <OutputPath>..\libs\Debug\</OutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Description>$(Description) Debug.</Description>
+    <Product>$(Product) Debug.</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.EndsWith('Release'))">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+
+  <Choose>
+      <When Condition="Exists('..\PhotonDotNet\PhotonDotNet.csproj')">
+          <ItemGroup >
+          <ProjectReference Include="..\PhotonDotNet\PhotonDotNet.csproj" AdditionalProperties="TargetFramework=$(TargetFramework)" />
+          </ItemGroup>
+      </When>
+      <Otherwise>
+          <ItemGroup>
+              <Reference Include="Photon-DotNet" Condition="'$(TargetFramework)' == 'net35'">
+                  <SpecificVersion>False</SpecificVersion>
+                  <HintPath>..\libs\Debug\$(TargetFramework)\Photon-DotNet.dll</HintPath>
+              </Reference>
+              <Reference Include="Photon-DotNet" Condition="'$(TargetFramework)' == 'netstandard2.0'">
+                  <SpecificVersion>False</SpecificVersion>
+                  <HintPath>..\libs\Debug\$(TargetFramework)\Photon-NetStandard.dll</HintPath>
+              </Reference>
+          </ItemGroup>
+      </Otherwise>
+  </Choose>
+
+  <ItemGroup Condition="$(Configuration.StartsWith('Unity'))">
+    <Reference Include="UnityEngine">
+      <HintPath>..\libs\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

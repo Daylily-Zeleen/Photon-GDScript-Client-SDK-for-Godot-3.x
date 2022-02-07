@@ -1,0 +1,201 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AppSettings",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/AppSettings.gd"
+}, {
+"base": "Reference",
+"class": "ChannelCreationOptions",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/ChannelCreationOptions.gd"
+}, {
+"base": "Reference",
+"class": "ChatAppSettings",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/ChatAppSettings.gd"
+}, {
+"base": "Reference",
+"class": "ChatAuthenticationValues",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/ChatAuthenticationValues.gd"
+}, {
+"base": "Reference",
+"class": "ChatChannel",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/ChatChannel.gd"
+}, {
+"base": "Node",
+"class": "ChatClient",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/core/ChatClient.gd"
+}, {
+"base": "Reference",
+"class": "EnterRoomParams",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/EnterRoomParams.gd"
+}, {
+"base": "Reference",
+"class": "ErrorInfo",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/ErrorInfo.gd"
+}, {
+"base": "Reference",
+"class": "EventData",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/EventData.gd"
+}, {
+"base": "Reference",
+"class": "FriendInfo",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/FriendInfo.gd"
+}, {
+"base": "Reference",
+"class": "OpJoinRandomRoomParams",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/OpJoinRandomRoomParams.gd"
+}, {
+"base": "Reference",
+"class": "OperationResponse",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/OperationResponse.gd"
+}, {
+"base": "Node",
+"class": "Photon",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/core/Photon.gd"
+}, {
+"base": "Reference",
+"class": "PhotonPlayer",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/PhotonPlayer.gd"
+}, {
+"base": "Reference",
+"class": "PhotonRoom",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/PhotonRoom.gd"
+}, {
+"base": "Reference",
+"class": "PhtonRoomInfo",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/PhtonRoomInfo.gd"
+}, {
+"base": "Reference",
+"class": "RaiseEventOptions",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/RaiseEventOptions.gd"
+}, {
+"base": "Reference",
+"class": "RealtimeAuthenticationValues",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/RealtimeAuthenticationValues.gd"
+}, {
+"base": "Node",
+"class": "RealtimeClient",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/core/RealtimeClient.gd"
+}, {
+"base": "Reference",
+"class": "Region",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/Region.gd"
+}, {
+"base": "Reference",
+"class": "RegionHandler",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/RegionHandler.gd"
+}, {
+"base": "Reference",
+"class": "RoomOptions",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/RoomOptions.gd"
+}, {
+"base": "Reference",
+"class": "SendOptions",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/SendOptions.gd"
+}, {
+"base": "Reference",
+"class": "TypedLobby",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/TypedLobby.gd"
+}, {
+"base": "Reference",
+"class": "TypedLobbyInfo",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/TypedLobbyInfo.gd"
+}, {
+"base": "Reference",
+"class": "WebFlags",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/WebFlags.gd"
+}, {
+"base": "Reference",
+"class": "WebRpcResponse",
+"language": "GDScript",
+"path": "res://addons/PhotonGDScriptClientSDK/warps/WebRpcResponse.gd"
+} ]
+_global_script_class_icons={
+"AppSettings": "",
+"ChannelCreationOptions": "",
+"ChatAppSettings": "",
+"ChatAuthenticationValues": "",
+"ChatChannel": "",
+"ChatClient": "",
+"EnterRoomParams": "",
+"ErrorInfo": "",
+"EventData": "",
+"FriendInfo": "",
+"OpJoinRandomRoomParams": "",
+"OperationResponse": "",
+"Photon": "",
+"PhotonPlayer": "",
+"PhotonRoom": "",
+"PhtonRoomInfo": "",
+"RaiseEventOptions": "",
+"RealtimeAuthenticationValues": "",
+"RealtimeClient": "",
+"Region": "",
+"RegionHandler": "",
+"RoomOptions": "",
+"SendOptions": "",
+"TypedLobby": "",
+"TypedLobbyInfo": "",
+"WebFlags": "",
+"WebRpcResponse": ""
+}
+
+[application]
+
+config/name="Photon GDScript Client SDK for Godot 3 .x"
+config/description="A warps of Photon C# Client SDK for GDScript."
+run/main_scene="res://Node.tscn"
+boot_splash/image="res://boot_splash.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+PhotonInitializer="*res://addons/PhotonGDScriptClientSDK/PhotonInitializer.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/PhotonGDScriptClientSDK/plugin.cfg" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
