@@ -56,7 +56,7 @@
   1. Make doc.
   2. Waiting for Godot 4.0's GDExtension to build GDScrip 2.0 SDK base on cpp.
 
- # Other:
+# Other:
 To get the Photon C# Client SDK in Photon official websit, you must to sign up to download it. But I integrate it to this sdk, if this way may cause some legal issues，please notify me, I will remove C# SDK files and add description for how to integrate it manually.
 
   =======================================================================
@@ -133,15 +133,15 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 
 
 
-#其他：
+# 更多：
 
-    同样，由于时间不够，我不能为这个SDK做很多测试。我希望大家都能参与这个SDK的开发。如果遇到错误，请尝试修复或改进，然后提交请求。
+同样，由于时间不够，我不能为这个SDK做很多测试。我希望大家都能参与这个SDK的开发。如果遇到错误，请尝试修复或改进，然后提交请求。
 
-    此外，如果您尝试修复错误或制作文档，我将不胜感激。
+此外，如果您尝试修复错误或制作文档，我将不胜感激。
 
 
 
-#待办事项：
+# 待办事项：
 
 1.完善文档。
 
@@ -149,7 +149,7 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 
 
 
-#其他：
+# 其他：
 要在光子官方网站上获得光子C#Client SDK，您必须注册登录并下载。但我将其集成到这个sdk中，如果这种方式可能会引起一些法律问题，请通知我，我将删除C# sdk相关文件，并添加如何手动集成的说明。
 
 
