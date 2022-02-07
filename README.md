@@ -1,3 +1,4 @@
+![Image](https://github.com/Daylily-Zeleen/Photon-GDScript-Client-SDK-for-Godot-3.x/blob/For-Godot-3.x/boot_splash.png)
 # Photon GDScript Client SDK for Godot3.X
   A warps of Photon C# Client SDK for GDScript.Contain Photon Realtime Client and Photon Chat Client.    
   Because of the lack of time, I can't complete a perfect description in both script and document.    
