@@ -33,7 +33,7 @@
 4. The Callback Interfaces' methods and Client Events in C# SDK are implement in GDScript SDK as follow:
     - Overridable methods( are called realtime, used in extends case);
     - Signals(are used in all case, are called later than Overridable methods );
-    - Group's objects callback methods( are called defer as default, you can code '(RealtimeClient/ChatClient).notify_when_idle = false' to set they called realtime, but they are still called later than signal);
+    - Group's objects callback methods( are called defer as default, you can code '(RealtimeClient/ChatClient).notify_when_idle = false' to set they called realtime, but they are still called later than signal).
 5. The argument's type of callback 'web_rpc_responsed' in GDScript is different to C# SDK, it is WebRpcResponse( In C#, it is OperationResponse). 
 6. You can't access the PhotonPeer( a underlying implementation for RealtimeClient and ChatClient ), you don't need to access it in common usage. If you has necessary to access it，please commit an issue to describe the necessity. 
 7. Because this SDK is a warps of C# SDK, in order to maximaize performance, I set the property PhotonPeer.ReuseEventInstance to true. You can control it by in RealtimeClient.reuse_event_instance and ChatClient.reuse_event_instance in GDScript version. 
@@ -43,7 +43,7 @@
     - use 'bg_dispatch' to control the ability of dispatch incoming commands;
     - use 'bg_send_interval_ms' to control the interval of send outgoing commands( in millisecond)；
     - use 'bg_dispatch_interval_ms' to control the interval of dispatch incoming commands( in millisecond)；
-    - use 'bg_send_single' to control whether send all cached outgoing commands or send single cached outgoing commond per send cycle( default false, if you modiy it, please make sure you know what you're doing).
+    - use 'bg_send_single' to control whether send all cached outgoing commands or send single cached outgoing commond per send cycle( default false, if you modiy it, please make sure you know what you're doing)；
     - use 'bg_dispatch_single' to control whether dispatch all cached incoming commands or dispatch single cached incoming commond per dispatch cycle( default false, if you modiy it, please make sure you know what you're doing).
     - all RealtimeClient and ChatClient instances are useing the same background thread to manipulate, even if you game have multiple Clients instance.
  10. I expose the methods send_outgoing_commands() and dispatch_incoming_commands() from PhotonPeer. Please to learn how to use them if you need to control the timing of send and dispatch commonds flexibly. Commonly, if you don't want to background thread system, just call service() regularly to process netcode.
@@ -105,7 +105,7 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 
     - 信号（适用于任何在可重写方法之后调用）；
 
-    - 组对象回调方法（默认情况下称为延迟调用，您可以通过设置”(RealtimeClient/ChatClient).notify_when_idle = false"，以让它们在事实调用，但它们仍然在信号之后被调用）；
+    - 组对象回调方法（默认情况下称为延迟调用，您可以通过设置”(RealtimeClient/ChatClient).notify_when_idle = false"，以让它们在事实调用，但它们仍然在信号之后被调用）。
 
 5. GDScript中，回调“web_rpc_responsed"的参数类型是 WebrpResponse, 不同于C# SDK（在C#中，它是OperationResponse）。
 
@@ -118,13 +118,13 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 9. 我没有将属性 ChatClient.UseBackgroundWorkerForSending 暴露给 GDSctipt SDK。我实现了一个后台线程系统来取代它, 用于 RealtimeClient 和 ChatClient 在后台线程中发送传出命令和调度传入命令：
     - 使用“bg_send”控制是否通过后台线程发送传出命令；
 
-    - 使用“bg_调度”控制是否通过后台线程调度传入命令；
+    - 使用“bg_dispatch”控制是否通过后台线程调度传入命令；
 
-    - 使用“bg_send_interval_ms”控制发送传出命令的间隔（毫秒）
+    - 使用“bg_send_interval_ms”控制发送传出命令的间隔（毫秒）；
 
-    - 使用“bg_dispatch_interval_ms”控制调度传入命令的间隔（毫秒）
+    - 使用“bg_dispatch_interval_ms”控制调度传入命令的间隔（毫秒）；
 
-    - 使用“bg_send_single”来控制是一次性发送所有被缓存的传出命令，还是每个发送周期发送单个被缓存的传出命令（默认为false，如果您修改了它，请确保您知道自己在做什么）。
+    - 使用“bg_send_single”来控制是一次性发送所有被缓存的传出命令，还是每个发送周期发送单个被缓存的传出命令（默认为false，如果您修改了它，请确保您知道自己在做什么）；
 
     - 使用“bg_dispatch_single”控制是一次性调度所有被缓存的传入命令，还是每个调度周期调度单个被缓存的传入commond（默认为false，如果您修改它，请确保您知道自己在做什么）。
     
