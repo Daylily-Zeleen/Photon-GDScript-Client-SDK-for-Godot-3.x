@@ -16,13 +16,13 @@
   for debug：  
   
     <ItemGroup>
-	    <Reference  Include="addons\\PhotonGDScriptClientSDK\\dependents\\libs\\Debug\\netstandard2.0\\Photon-NetStandard.dll" />
+	    <Reference  Include="addons\PhotonGDScriptClientSDK\dependents\libs\Debug\netstandard2.0\Photon-NetStandard.dll" />
     </ItemGroup> 
 
   for release：
   
     <ItemGroup>
-	    <Reference  Include="addons\\PhotonGDScriptClientSDK\\dependents\\libs\\Release\\netstandard2.0\\Photon-NetStandard.dll" />
+	    <Reference  Include="addons\PhotonGDScriptClientSDK\dependents\libs\Release\netstandard2.0\Photon-NetStandard.dll" />
     </ItemGroup> 
     
 # The differences between C# SDK are as follow:    
@@ -73,7 +73,7 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 # 如何使用:
   你必须使用 Godot 3.x mono. 
   1. 像其他插件一样安装该插件； 
-  2. 为了生成 .csproj 文件，你必须只少构建一次你的项目.
+  2. 为了生成 .csproj 文件，你必须至少构建一次你的项目.
   3. 将C# SDK 的 .dll 包含到 C# project.
   4. 启用该插件.
   如果你不清楚如何包含C# SDK 的 .dll,你可以把以下内容作为一个xml项目置于 .cspro 中的 “Project”项目下：
@@ -81,13 +81,13 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
   调试用：  
      
     <ItemGroup>
-      <Reference  Include="addons\\PhotonGDScriptClientSDK\\dependents\\libs\\Debug\\netstandard2.0\\Photon-NetStandard.dll" />
+      <Reference  Include="addons\PhotonGDScriptClientSDK\dependents\libs\Debug\netstandard2.0\Photon-NetStandard.dll" />
     </ItemGroup> 
 
   发布用：
   
     <ItemGroup>
-      <Reference  Include="addons\\PhotonGDScriptClientSDK\\dependents\\libs\\Release\\netstandard2.0\\Photon-NetStandard.dll" />
+      <Reference  Include="addons\PhotonGDScriptClientSDK\dependents\libs\Release\netstandard2.0\Photon-NetStandard.dll" />
     </ItemGroup> 
 # 与 C# SDK 之间的区别如下：
 
