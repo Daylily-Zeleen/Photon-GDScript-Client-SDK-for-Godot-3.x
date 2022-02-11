@@ -88,4 +88,4 @@ func _readonly(v)->void:
 	assert(false,"该属性为只读属性")
 	
 const _Base = preload("../src/PhotonRealtimeAuthenticationValues.cs")
-var _base:_Base
+var _base:_Base = _Base.new()

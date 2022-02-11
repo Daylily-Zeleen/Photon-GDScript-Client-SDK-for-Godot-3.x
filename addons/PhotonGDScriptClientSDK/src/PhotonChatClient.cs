@@ -43,6 +43,7 @@ namespace PhotonGodotWarps.src
         /// </summary>
         public PhotonChatClient()
         {
+            GodotTypeSeriliazer.RegistGodotType();
             backgroudThreadConfig = new PhotonClientBackgroundThreadConfig(
                                 new Func<bool>(SendOutgoingCommands),
                                 new Func<bool>(DispatchIncomingCommands)
@@ -156,7 +157,7 @@ namespace PhotonGodotWarps.src
                     var tmp = gdsAuthValues.Get("_base") as PhotonChatAuthenticationValues;
                     if (tmp.AuthenticationValues != chatClient.AuthValues)
                     {
-                        if (!tmp.IsQueuedForDeletion()) tmp.Free();
+                        // if (!tmp.IsQueuedForDeletion()) tmp.Free();
                         tmp.AuthenticationValues = chatClient.AuthValues;
                     }
                     return gdsAuthValues;
@@ -165,7 +166,7 @@ namespace PhotonGodotWarps.src
                 {
                     if (gdsAuthValues != null) 
                     {
-                        if (IsInstanceValid(gdsAuthValues)) gdsAuthValues.Free();
+                        if (IsInstanceValid(gdsAuthValues)) gdsAuthValues = null;
                     }
                     return null;
                 }

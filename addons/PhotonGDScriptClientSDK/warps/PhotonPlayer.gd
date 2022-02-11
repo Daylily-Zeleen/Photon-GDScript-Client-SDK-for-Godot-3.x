@@ -45,11 +45,12 @@ func _get__tag_object():
 	return tag_object 
 func _get_custom_properties()->Dictionary:return _base.get_CustomProperties()
 func _get_is_inactive()->bool:return _base.get_IsInactive()
-func _get_is_master_client()->bool:return _base.get_IsMasterClient()
+func _get_is_master_client()->bool:
+	return _base.get_IsMasterClient()
 func _get_user_id()->String:return _base.get_UserId()
 func _get_nick_name()->String:return _base.get_NickName()
 func _get_has_rejoined()->bool: return _base.get_HasRejoined()
-func _get_is_local()->bool:return _base._get_is_local()
+func _get_is_local()->bool:return _base.get_IsLocal()
 func _get_actor_number()->int :return _base.get_ActorNumber()
 
 func _readonly(v)->void:

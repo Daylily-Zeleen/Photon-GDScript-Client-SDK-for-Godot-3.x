@@ -83,3 +83,6 @@ var _base #:_Base
 static func _setup_prefeb()->void:
 	var _CLASS = load("res://addons/PhotonGDScriptClientSDK/warps/OperationResponse.gd")
 	_Prefeb._UNIQUE = _CLASS.new(_Base.new())
+	
+static func _update_unique(opRespond)->void:
+	_Prefeb._UNIQUE._base = opRespond

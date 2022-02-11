@@ -13,6 +13,29 @@ using PhotonGodotWarps.Warps;
 
 namespace PhotonGodotWarps.src
 {
+    internal class GodotTypeSeriliazer
+    {
+        static bool Registed = false; 
+        private static  byte[] Serialize(object dictionary)
+        {
+            return Godot.GD.Var2Bytes(dictionary);
+        }
+        private static object Deserialize(byte[] serializedCustomObject)
+        {
+            return Godot.GD.Bytes2Var(serializedCustomObject);
+        }
+
+        internal static void RegistGodotType()
+        {
+            if (!Registed)
+            {
+                PhotonPeer.RegisterType(typeof(Godot.Collections.Dictionary),(byte)Godot.Variant.Type.Dictionary , Serialize, Deserialize);
+                PhotonPeer.RegisterType(typeof(Godot.Collections.Array),(byte)Godot.Variant.Type.Array , Serialize, Deserialize);
+                Registed = true;
+            }
+        }
+    }
+
     /// <summary>
     /// 包装对象提供给GDScript接入
     /// </summary>
@@ -47,6 +70,7 @@ namespace PhotonGodotWarps.src
         /// 需要进一步调用 init()
         /// </summary>
         public PhotonRealtimeClient(){
+            GodotTypeSeriliazer.RegistGodotType();
             // 实例化后台线程配置
             backgroudThreadConfig = new  PhotonClientBackgroundThreadConfig(
                             new Func<bool>(SendOutgoingCommands),
@@ -261,7 +285,7 @@ namespace PhotonGodotWarps.src
                     var tmp = gdsAuthValues.Get("_base") as PhotonRealtimeAuthenticationValues;
                     if (tmp.AuthenticationValues != realtimeClient.AuthValues)
                     {
-                        if (!tmp.IsQueuedForDeletion()) tmp.Free();
+                        // if (!tmp.IsQueuedForDeletion()) tmp.Free();
                         tmp.AuthenticationValues = realtimeClient.AuthValues;
                     }
                     return gdsAuthValues;
@@ -270,7 +294,7 @@ namespace PhotonGodotWarps.src
                 {
                     if (gdsAuthValues != null) 
                     {
-                        if (IsInstanceValid(gdsAuthValues)) gdsAuthValues.Free();
+                        if (IsInstanceValid(gdsAuthValues)) gdsAuthValues = null;
                     }
                     return null;
                 }
@@ -336,7 +360,13 @@ namespace PhotonGodotWarps.src
         public bool IsFetchingFriendList=>realtimeClient.IsFetchingFriendList;
         public string CloudRegion=>realtimeClient.CloudRegion;
         public string CurrentCluster=>realtimeClient.CurrentCluster;
-        public Reference GDSRegionHandler=>RegionHandler.GDSRegionHandler;
+        public Reference GDSRegionHandler
+        {
+            get{
+                if (RegionHandler == null) return null;
+                else return RegionHandler.GDSRegionHandler;
+            }
+        }
         public PhotonRegionHandler RegionHandler{get;private set;} = null;
         public string SummaryToCache {get=>realtimeClient.SummaryToCache;set=>realtimeClient.SummaryToCache=value;}
         public int NameServerPortInAppSettings{get=>realtimeClient.NameServerPortInAppSettings; set=>realtimeClient.NameServerPortInAppSettings=value;}
