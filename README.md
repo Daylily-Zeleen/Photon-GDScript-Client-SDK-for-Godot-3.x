@@ -1,10 +1,10 @@
 ![Image](https://github.com/Daylily-Zeleen/Photon-GDScript-Client-SDK-for-Godot-3.x/blob/For-Godot-3.x/boot_splash.png)
 # Photon GDScript Client SDK for Godot3.X
-  A warps of Photon C# Client SDK for GDScript. Contain Photon Realtime Client and Photon Chat Client.    
+  A wrapper of Photon C# Client SDK for GDScript. Contain Photon Realtime Client and Photon Chat Client.    
   Because of the lack of time, I can't complete a perfect description in both script and document.    
   But the usage of this SDK is similar to Photon C# Client SDK, basically you can refer to the [official document](https://doc.photonengine.com/en-us/realtime/current/getting-started/realtime-intro).    
   
-  The most importance class are in `addons\addons\PhotonGDScriptClientSDK\core`, the others data class and object represent class are in `addons\addons\PhotonGDScriptClientSDK\warps`
+  The most importance class are in `addons\addons\PhotonGDScriptClientSDK\core`, the others data class and object represent class are in `addons\addons\PhotonGDScriptClientSDK\wraps`
 
 # How to use:
   You must use Godot 3.x mono. 
@@ -36,7 +36,7 @@
     - Group's objects callback methods( are called defer as default, you can code `<RealtimeClient/ChatClient>.notify_when_idle = false` to set their are called realtime, but they are still called later than signal).
 5. The argument's type of callback `web_rpc_responsed` in GDScript is different to C# SDK, it is `WebRpcResponse`( In C#, it is `OperationResponse`). 
 6. You can't access the `PhotonPeer`( a underlying implementation for `RealtimeClient` and `ChatClient` ), you don't need to access it in common usage. If you has necessary to access it，please commit an issue to describe the necessity. 
-7. Because this SDK is a warps of C# SDK, in order to maximaize performance, I set the property `PhotonPeer.ReuseEventInstance` to `true`. You can control it by `RealtimeClient.reuse_event_instance` and `ChatClient.reuse_event_instance` in GDScript version. 
+7. Because this SDK is a wrapper of C# SDK, in order to maximaize performance, I set the property `PhotonPeer.ReuseEventInstance` to `true`. You can control it by `RealtimeClient.reuse_event_instance` and `ChatClient.reuse_event_instance` in GDScript version. 
 8. As the same reson as above, the instances which their class are named `ErroInfo`, `OperationResponse` and `WebRpcResponse`, which got from `RealtimeClient` and `ChatClient`, are always the same intance, event if got from defferent Client instancea. If you need to cache infos which in these intances, please extract infos every time you get them.
 9. I‘m not expose the property `ChatClient.UseBackgroundWorkerForSending` for GDSctipt SDK. Instead, I implement a backgound thread system to send outgoing commands and dispatch incoming commands for both `RealtimeClient` and `ChatClient`:
     - use `bg_send` to control the ability of send outgoing commands;
@@ -68,7 +68,7 @@ To get the Photon C# Client SDK in Photon official websit, you must to sign up t
 
 由于时间不够，我无法在脚本和文档中做完善的描述,但是这个SDK的用法与光子C#客户端SDK类似，基本上你可以参考[官方文档](https://doc.photonengine.com/en-us/realtime/current/getting-started/realtime-intro)进行开发.
 
-最重要的类在“addons\addons\PhotonGDScriptClientSDK\core”中，另外一些数据类和对象表示类在“addons\addons\PhotonGDScriptClientSDK\warps”中
+最重要的类在“addons\addons\PhotonGDScriptClientSDK\core”中，另外一些数据类和对象表示类在“addons\addons\PhotonGDScriptClientSDK\wraps”中
 
 # 如何使用:
   你必须使用 Godot 3.x mono. 
