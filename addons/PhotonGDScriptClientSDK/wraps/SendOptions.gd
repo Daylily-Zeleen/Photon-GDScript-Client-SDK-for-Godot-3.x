@@ -23,7 +23,7 @@ var reliability:bool setget _set_reliability,_get_reliability
 
 
 ## 实例化该类时不该带参
-func _init(__base) -> void: #:_Base
+func _init(__base = null) -> void: #:_Base
 	if __base : _base = __base
 	else : _base = _Base.new()
 
