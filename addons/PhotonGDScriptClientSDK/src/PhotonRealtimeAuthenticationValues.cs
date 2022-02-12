@@ -2,7 +2,7 @@ using Godot;
 using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonRealtimeAuthenticationValues:Reference
     {
@@ -101,7 +101,7 @@ namespace PhotonGodotWarps.Warps
 
 
 
-        // private static GDScript GDSClass = GD.Load<GDScript>("res://addons/Photon/warps/RealtimeAuthenticationValues.gd");
+        // private static GDScript GDSClass = GD.Load<GDScript>("res://addons/Photon/wraps/RealtimeAuthenticationValues.gd");
         // private readonly WeakRef gdsRef;
         // public Reference GDSInstance => gdsRef.GetRef() as Reference;
         /// <summary>Creates empty auth values without any info.</summary>

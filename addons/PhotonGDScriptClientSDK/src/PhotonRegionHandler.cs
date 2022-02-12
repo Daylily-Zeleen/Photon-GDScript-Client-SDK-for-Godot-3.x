@@ -2,7 +2,7 @@ using Godot;
 using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonRegionHandler:Reference
     {
@@ -51,8 +51,8 @@ namespace PhotonGodotWarps.Warps
         //     return this.RegionHandler.PingMinimumOfRegions(onCompleteCallback, previousSummary);
         // }
 
-        private static GDScript GDSRegionClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/Region.gd");
-        private static GDScript GDSRegionHandlerClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/RegionHandler.gd");
+        private static GDScript GDSRegionClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/Region.gd");
+        private static GDScript GDSRegionHandlerClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/RegionHandler.gd");
         private readonly WeakRef regionHandlerRef ;
         internal Reference GDSRegionHandler {get=>regionHandlerRef.GetRef() as Reference;}
         internal RegionHandler RegionHandler{get;private set;}

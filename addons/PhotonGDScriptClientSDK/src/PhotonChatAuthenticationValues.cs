@@ -2,7 +2,7 @@ using Godot;
 using Photon.Chat;
 // using System.Collections.Generic;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonChatAuthenticationValues:Reference
     {

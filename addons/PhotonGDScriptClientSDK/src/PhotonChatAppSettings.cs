@@ -2,7 +2,7 @@ using Godot;
 using Photon.Chat;
 using ExitGames.Client.Photon;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonChatAppSettings:Reference
     {

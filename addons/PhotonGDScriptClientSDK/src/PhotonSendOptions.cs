@@ -4,7 +4,7 @@ using System.Collections;
 using Godot.Collections;
 using ExitGames.Client.Photon;
 
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonSendOptions:Reference
     {
@@ -12,11 +12,11 @@ namespace PhotonGodotWarps.Warps
         //
         // 摘要:
         //     Default SendOptions instance for reliable sending.
-        public static readonly PhotonSendOptions SendReliable = new PhotonSendOptions(SendOptions.SendReliable);
-        //
-        // 摘要:
-        //     Default SendOptions instance for unreliable sending.
-        public static readonly PhotonSendOptions SendUnreliable = new PhotonSendOptions(SendOptions.SendUnreliable);
+        // public static readonly PhotonSendOptions SendReliable = new PhotonSendOptions(SendOptions.SendReliable);
+        // //
+        // // 摘要:
+        // //     Default SendOptions instance for unreliable sending.
+        // public static readonly PhotonSendOptions SendUnreliable = new PhotonSendOptions(SendOptions.SendUnreliable);
         //
         // 摘要:
         //     Chose the DeliveryMode for this operation/message. Defaults to Unreliable.
@@ -60,7 +60,13 @@ namespace PhotonGodotWarps.Warps
             this.sendOptions = sendOptions;
         }
 
-        static PhotonSendOptions GetSendReliable()=>SendReliable;
-        static PhotonSendOptions GetSendUnreliable()=>SendUnreliable;
+        public static PhotonSendOptions GetSendReliable() 
+        {
+            return new PhotonSendOptions(SendOptions.SendReliable);
+        }
+        public static PhotonSendOptions GetSendUnreliable()
+        {
+            return new PhotonSendOptions(SendOptions.SendUnreliable);;
+        }
     }
 }

@@ -3,7 +3,7 @@ using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
 using ExitGames.Client.Photon;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     /// <summary>
     /// 提取数据，不保留源类
@@ -11,6 +11,7 @@ namespace PhotonGodotWarps.Warps
     /// </summary>
     public class PhotonEventData:Reference
     {
+        private readonly static GDScript GDSEventDataClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/EventData.gd") ;
         internal static PhotonEventData UniqueRealtimeEventData = new PhotonEventData() ;
         internal static PhotonEventData UniqueChatEventData = new PhotonEventData() ;
         internal static bool ReuseRealtimeEventInstance {get;set;} = true;
@@ -134,14 +135,16 @@ namespace PhotonGodotWarps.Warps
             }
         }
         private EventData eventData ;
-        internal PhotonEventData(EventData eventData)
+        internal PhotonEventData(EventData eventData):this()
         {
             this.EventData = eventData;
         }
         public PhotonEventData()
         {
-            this.EventData = new EventData();
+            gdsEventDataRef = WeakRef(GDSEventDataClass.New(this) as Reference);
         }
-        static PhotonEventData GetUniqueRealtimeInstance()=>PhotonEventData.UniqueRealtimeEventData;
+        private readonly WeakRef gdsEventDataRef;
+        internal Reference GdsEventData => gdsEventDataRef.GetRef() as Reference;
+
     }
 }

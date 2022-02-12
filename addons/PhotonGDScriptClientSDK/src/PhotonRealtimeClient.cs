@@ -7,11 +7,11 @@ using Godot;
 using static Godot.GD;
 using System;
 using ExitGames.Client.Photon;
-using PhotonGodotWarps.Warps;
+using PhotonGodotWraps.Wraps;
 
 
 
-namespace PhotonGodotWarps.src
+namespace PhotonGodotWraps.src
 {
     internal class GodotTypeSeriliazer
     {
@@ -89,7 +89,7 @@ namespace PhotonGodotWarps.src
                         if (!InRoom) CurrentRoom = null;
                         EmitSignal(nameof(StateChanged), previousState, currentState);
                     };
-            realtimeClient.EventReceived += (eventData)=>EmitSignal(nameof(EventReceived), PhotonEventData.GetPhotonRealtimeEventData(eventData));
+            realtimeClient.EventReceived += (eventData)=>EmitSignal(nameof(EventReceived), PhotonEventData.GetPhotonRealtimeEventData(eventData).GdsEventData);
             realtimeClient.OpResponseReceived += (opResponse)=>
                     {
                         if (opResponse.OperationCode == OperationCode.JoinGame)
@@ -268,7 +268,7 @@ namespace PhotonGodotWarps.src
         public string AppVersion { get=>realtimeClient.AppVersion; set=>realtimeClient.AppVersion=value; }
         public string AppId { get=>realtimeClient.AppId; set=>realtimeClient.AppId=value; }
         public ClientAppType ClientType { get=>realtimeClient.ClientType; set=>realtimeClient.ClientType = value; }
-        private readonly static GDScript GDSAuthValuesClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/RealtimeAuthenticationValues.gd");
+        private readonly static GDScript GDSAuthValuesClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/RealtimeAuthenticationValues.gd");
         
         /// <summary>User authentication values to be sent to the Photon server right after connecting.</summary>
         /// <remarks>Set this property or pass AuthenticationValues by Connect(..., authValues).</remarks>
@@ -503,7 +503,7 @@ namespace PhotonGodotWarps.src
         [Signal] //
         delegate void OpResponseReceived(PhotonOperationResponse operationResponse); // 低级别的回调，不建议直接使用
         [Signal] // 
-        delegate void EventReceived(PhotonEventData eventData);
+        delegate void EventReceived(Reference eventData);
         [Signal]
         delegate void StateChanged(ClientState previousState, ClientState currentState);
 
@@ -622,7 +622,7 @@ namespace PhotonGodotWarps.src
             var leftPlayer = CurrentRoom.GetGDSPlayer(otherPlayer.ActorNumber);
             if (leftPlayer == null) 
             {
-                PushError("Warps Logic err: A Player left room but can't find in PhotonRoom.");
+                PushError("Wraps Logic err: A Player left room but can't find in PhotonRoom.");
                 leftPlayer = new PhotonPlayer(otherPlayer);
             }
             // 真正离开房间时，从字典里移除
@@ -652,7 +652,7 @@ namespace PhotonGodotWarps.src
 
         void ILobbyCallbacks.OnLeftLobby() => EmitSignal(nameof(LobbyLefting));
 
-        private static GDScript GDSRoomInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/RaiseEventOptions.gd");
+        private static GDScript GDSRoomInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/RaiseEventOptions.gd");
 
         void ILobbyCallbacks.OnRoomListUpdate(List<RoomInfo> roomList)
         {
@@ -671,7 +671,7 @@ namespace PhotonGodotWarps.src
             EmitSignal(nameof(RoomListUpdated),r);
         }
 
-        private static GDScript GDSLobbyInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/TypedLobbyInfo.gd");
+        private static GDScript GDSLobbyInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/TypedLobbyInfo.gd");
         void ILobbyCallbacks.OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics)
         {
             var r = new Godot.Collections.Array<Reference>();
@@ -688,7 +688,7 @@ namespace PhotonGodotWarps.src
         }
         
         
-        private static GDScript GDSFriendInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/FriendInfo.gd");
+        private static GDScript GDSFriendInfoClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/FriendInfo.gd");
         void IMatchmakingCallbacks.OnFriendListUpdate(List<FriendInfo> friendList)
         {
             var friendInfoList = new Godot.Collections.Array<Reference>();

@@ -1,6 +1,6 @@
 using Godot;
 using Photon.Realtime;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonWebFlags:Reference
     {

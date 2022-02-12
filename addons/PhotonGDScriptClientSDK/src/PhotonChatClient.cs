@@ -7,11 +7,11 @@ using Godot.Collections;
 using static Godot.GD;
 using System;
 using ExitGames.Client.Photon;
-using PhotonGodotWarps.Warps;
+using PhotonGodotWraps.Wraps;
 
 
 
-namespace PhotonGodotWarps.src
+namespace PhotonGodotWraps.src
 {
     public class PhotonChatClient:Reference,IChatClientListener
     {
@@ -139,7 +139,7 @@ namespace PhotonGodotWarps.src
         /// <summary>The AppID as assigned from the Photon Cloud.</summary>
         public string AppId=>chatClient.AppId;
 
-        private readonly static GDScript GDSAuthValuesClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/ChatAuthenticationValues.gd");
+        private readonly static GDScript GDSAuthValuesClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/ChatAuthenticationValues.gd");
         
         /// <summary>Settable only before you connect!</summary>
         /// <summary>User authentication values to be sent to the Photon server right after connecting.</summary>

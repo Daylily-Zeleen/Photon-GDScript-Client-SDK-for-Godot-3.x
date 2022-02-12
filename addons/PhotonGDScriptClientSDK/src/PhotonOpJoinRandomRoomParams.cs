@@ -2,7 +2,7 @@ using Godot;
 using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonOpJoinRandomRoomParams:Reference
     {

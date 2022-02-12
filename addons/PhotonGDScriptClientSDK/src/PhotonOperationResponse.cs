@@ -3,7 +3,7 @@ using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
 using ExitGames.Client.Photon;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonOperationResponse:Reference
     {        

@@ -2,7 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonRoom:Godot.Reference
     {
@@ -58,7 +58,7 @@ namespace PhotonGodotWarps.Warps
         /// <returns></returns>
         public override int GetHashCode() => this.Room.GetHashCode();
 
-        private static Godot.GDScript GDSRoomClass = Godot.GD.Load<Godot.GDScript>("res://addons/PhotonGDScriptClientSDK/warps/PhotonRoom.gd");
+        private static Godot.GDScript GDSRoomClass = Godot.GD.Load<Godot.GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/PhotonRoom.gd");
         public Godot.Reference GDSRoom => GDSRoomRef.GetRef() as Godot.Reference;
         private readonly Godot.WeakRef GDSRoomRef;
 

@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Threading;
-namespace PhotonGodotWarps
+namespace PhotonGodotWraps
 {
     /// <summary>
     /// 后台线程配置。

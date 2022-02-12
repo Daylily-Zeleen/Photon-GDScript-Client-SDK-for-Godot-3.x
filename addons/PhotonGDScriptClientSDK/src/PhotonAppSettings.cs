@@ -1,7 +1,7 @@
 using Godot;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonAppSettings:Reference
     {

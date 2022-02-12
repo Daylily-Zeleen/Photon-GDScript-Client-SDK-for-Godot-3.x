@@ -2,11 +2,11 @@ using Godot;
 using Photon.Realtime;
 using System.Collections;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonPlayer:Reference
     {
-        private static GDScript GDSPlayerClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/PhotonPlayer.gd"); 
+        private static GDScript GDSPlayerClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/PhotonPlayer.gd"); 
         public int ActorNumber=>Player.ActorNumber;
         public bool IsLocal =>Player.IsLocal;
         public bool HasRejoined=>Player.HasRejoined;

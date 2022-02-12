@@ -2,7 +2,7 @@ using Godot;
 using Photon.Chat;
 using System.Collections.Generic;
 using Godot.Collections;
-namespace PhotonGodotWarps.Warps
+namespace PhotonGodotWraps.Wraps
 {
     public class PhotonChatChannel:Reference
     {
@@ -42,13 +42,14 @@ namespace PhotonGodotWarps.Warps
         public Array<string> Subscribers {get;}= new Array<string>();
 
         private ChatChannel chatChannel;
-        private static readonly GDScript GDSChatChannelClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/warps/ChatChannel.gd");
+        private readonly static GDScript GDSChatChannelClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/ChatChannel.gd");
         private readonly WeakRef GDSChatChannelRef ;
         public Reference GDSChatChannel => GDSChatChannelRef.GetRef() as Reference;
         /// <summary>
         /// 对接用
         /// </summary>
         public PhotonChatChannel(){
+            // if (GDSChatChannelClass == null) GDSChatChannelClass = GD.Load<GDScript>("res://addons/PhotonGDScriptClientSDK/wraps/ChatChannel.gd");
             GDSChatChannelRef = WeakRef(GDSChatChannelClass.New(this) as Reference);
         }
 
