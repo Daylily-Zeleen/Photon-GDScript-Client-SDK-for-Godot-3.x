@@ -3,11 +3,18 @@ extends RealtimeClient
 # 连接到服务器
 func _ready() -> void:
 	var setting = AppSettings.new()	
-	setting.app_id_realtime = "c45c78da-788d-407b-b249-334de949c480"
-	setting.app_version = "v0.1"
-	setting.fixed_region = "cn"
-	setting.use_name_server = true
-	setting.server = "ns.photonengine.cn"
+	# 这是光子云中国区的 AppSettings 设置, 如果要使用中国区，请取消下方注释，并注释掉非中国区的设置
+#	setting.app_id_realtime = "<your-photon-app-id-here>" # 替换成你的 realtime appid
+#	setting.app_version = "v0.1"
+#	setting.fixed_region = "cn"
+#	setting.use_name_server = true
+#	setting.server = "ns.photonengine.cn"
+	
+	# If your are not in China, use setting as below.
+	setting.app_id_realtime = "<your-photon-app-id-here>" # Replace as your realtime appid.
+	setting.fixed_region = "eu" 	# Default is "eu", you can replace it , such as "us", "au" and so on.
+					# Or remove this line to let your client find the best region automatically( but I have not test it , because I'm in China and can't connect other region).
+	
 	connect_using_settings(setting)
 	
 # 每帧处理网络
