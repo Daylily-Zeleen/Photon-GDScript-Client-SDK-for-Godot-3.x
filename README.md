@@ -12,7 +12,8 @@
   2. Build you project at least once to generate the `.csproj` file.
   3. Include Photon C# SDK's `.dll` to you C# project.
   4. Enable this addon.
-  If you do not how to include C# SDK's `.dll`, you can add follow text as a xml tiem under `Project` item in `.csproj` file:
+  
+  If you don't know how to include C# SDK's `.dll`, you can add follow text as a xml tiem under `Project` item in `.csproj` file:
   for debug：  
   
     <ItemGroup>
